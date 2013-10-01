@@ -1,7 +1,5 @@
 package org.xgbi.assertj.vaadin.api;
 
-import org.assertj.core.api.AbstractAssert;
-
 import com.vaadin.terminal.Resource;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.TabSheet;
