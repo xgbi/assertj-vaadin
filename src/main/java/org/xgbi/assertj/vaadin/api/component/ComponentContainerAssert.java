@@ -1,4 +1,4 @@
-package org.xgbi.assertj.vaadin.api;
+package org.xgbi.assertj.vaadin.api.component;
 
 import com.vaadin.ui.Component;
 import com.vaadin.ui.ComponentContainer;

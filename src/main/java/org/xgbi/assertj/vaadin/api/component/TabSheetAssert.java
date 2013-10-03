@@ -1,4 +1,4 @@
-package org.xgbi.assertj.vaadin.api;
+package org.xgbi.assertj.vaadin.api.component;
 
 import java.util.Collection;
 

@@ -1,4 +1,6 @@
-package org.xgbi.assertj.vaadin.api;
+package org.xgbi.assertj.vaadin.api.component;
+
+import org.xgbi.assertj.vaadin.api.AbstractAssert;
 
 import com.vaadin.terminal.Resource;
 import com.vaadin.ui.Component;

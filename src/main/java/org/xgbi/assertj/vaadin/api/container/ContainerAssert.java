@@ -1,13 +1,25 @@
-package org.xgbi.assertj.vaadin.api;
+package org.xgbi.assertj.vaadin.api.container;
 
 import java.util.Collection;
 
+import org.xgbi.assertj.vaadin.api.AbstractAssert;
+
 import com.vaadin.data.Container;
 
+/**
+ * Assertions for Vaadin {@link Container}.
+ *  
+ * @author Vincent Demeester
+ *
+ */
 public class ContainerAssert extends AbstractAssert<ContainerAssert, Container> {
 
-	protected ContainerAssert(Container actual) {
+	public ContainerAssert(Container actual) {
 		super(actual, ContainerAssert.class);
+	}
+	
+	protected ContainerAssert(Container actual, Class<?> type) {
+		super(actual, type);
 	}
 
 	/**
@@ -258,7 +270,11 @@ public class ContainerAssert extends AbstractAssert<ContainerAssert, Container> 
 	}
 	
 	public ContainerAssert hasProperty(Object propertyId, Object itemId) {
-		// FIXME implementation
+		isNotNull();
+		throwIllegalArgumentExceptionIfTrue(propertyId == null,
+				"The propertyId to look for should not be null");
+		throwIllegalArgumentExceptionIfTrue(itemId == null,
+				"The itemId to look for should not be null");
 		return this;
 	}
 
@@ -269,6 +285,15 @@ public class ContainerAssert extends AbstractAssert<ContainerAssert, Container> 
 
 	public ContainerAssert hasSize(int size) {
 		// FIXME implementation
+		return this;
+	}
+	
+	public ContainerAssert equals(Container container) {
+		// FIXME implementation
+		return this;
+	}
+	
+	public ContainerAssert same(Container container) {
 		return this;
 	}
 
