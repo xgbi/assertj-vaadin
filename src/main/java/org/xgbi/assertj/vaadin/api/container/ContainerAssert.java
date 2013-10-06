@@ -343,17 +343,90 @@ public class ContainerAssert extends AbstractAssert<ContainerAssert, Container> 
 		return this;
 	}
 
+	/**
+	 * Assert that the {@link Container} has the given size.
+	 * 
+	 * @param size
+	 *            the size (Object) to look for in the actual {@link Container}.
+	 * @return this {@link ContainerAssert} for assertions chaining.
+	 * 
+	 * @throws AssertionError
+	 *             if the actual {@link Container} is {@code null}.
+	 * @throws AssertionError
+	 *             if the actual {@link Container} does not have the given size.
+	 */
 	public ContainerAssert hasSize(int size) {
-		// FIXME implementation
+		isNotNull();
+		if (getActual().size() != size) {
+			failWithMessage("Expected to have a size of [%s], but was [%s]",
+					size, getActual().size());
+		}
 		return this;
 	}
 
+	/**
+	 * Assert that the {@link Container} is equal to the given {@link Container}
+	 * .
+	 * 
+	 * <p>
+	 * NB: This is a naive approach as it just check that it has the same
+	 * propertyIds and itemIds. In a near future it might do more
+	 * <em>introspection</em>, on each cells.
+	 * 
+	 * @param container
+	 *            the container (Object) to compare to the actual
+	 *            {@link Container}.
+	 * @return this {@link ContainerAssert} for assertions chaining.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the given container is {@code null}.
+	 * @throws AssertionError
+	 *             if the actual {@link Container} is {@code null}.
+	 * @throws AssertionError
+	 *             if the actual {@link Container} is not equal to the given
+	 *             {@link Container}.
+	 */
 	public ContainerAssert equals(Container container) {
-		// FIXME implementation
+		isNotNull();
+		throwIllegalArgumentExceptionIfTrue(container == null,
+				"The container to look for should not be null");
+		Collection<?> expectedPropertyIds = container.getContainerPropertyIds();
+		Collection<?> expectedItemIds = container.getItemIds();
+		for (Object expectedPropertyId : expectedPropertyIds) {
+			hasPropertyId(expectedPropertyId);
+		}
+		for (Object expectedItemId : expectedItemIds) {
+			hasItemId(expectedItemId);
+		}
 		return this;
 	}
 
+	/**
+	 * Assert that the {@link Container} is the same (reference) to the given
+	 * {@link Container}.
+	 * 
+	 * @param container
+	 *            the container (Object) to compare to the actual
+	 *            {@link Container}.
+	 * @return this {@link ContainerAssert} for assertions chaining.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the given container is {@code null}.
+	 * @throws AssertionError
+	 *             if the actual {@link Container} is {@code null}.
+	 * @throws AssertionError
+	 *             if the actual {@link Container} is not the same as the given
+	 *             {@link Container}.
+	 */
 	public ContainerAssert same(Container container) {
+		isNotNull();
+		throwIllegalArgumentExceptionIfTrue(container == null,
+				"The container to look for should not be null");
+		if (getActual() != container) {
+			failWithMessage(
+					"Expected container [%s] to be the same as [%s] but was not.",
+					getActual(), container);
+		}
 		return this;
 	}
 
