@@ -56,7 +56,7 @@ public class ContainerAssert extends AbstractAssert<ContainerAssert, Container> 
 	public ContainerAssert isNotEmpty() {
 		isNotNull();
 		if (getActual().size() == 0) {
-			failWithMessage("Expected to have a least one item.");
+			failWithMessage("Expected to have at least one item.");
 		}
 		return this;
 	}
