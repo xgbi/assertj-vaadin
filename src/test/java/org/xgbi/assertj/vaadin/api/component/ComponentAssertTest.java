@@ -1,4 +1,4 @@
-package org.xgbi.assertj.vaadin.api;
+package org.xgbi.assertj.vaadin.api.component;
 
 import static org.assertj.core.util.FailureMessages.actualIsNull;
 import static org.junit.Assert.assertEquals;
@@ -8,6 +8,7 @@ import static org.xgbi.assertj.vaadin.api.Assertions.assertThat;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
+import org.xgbi.assertj.vaadin.api.BaseTest;
 
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;

@@ -107,7 +107,7 @@ public class ContainerAssert extends AbstractAssert<ContainerAssert, Container> 
 	public ContainerAssert hasPropertyId(Object propertyId) {
 		isNotNull();
 		throwIllegalArgumentExceptionIfTrue(propertyId == null,
-				"The propertyId to look for should not be null");
+				"The propertyId to look for should not be null.");
 		Collection<?> actualPropertyIds = getActual().getContainerPropertyIds();
 		isNotNull(actualPropertyIds);
 		if (!actualPropertyIds.contains(propertyId)) {
@@ -140,9 +140,9 @@ public class ContainerAssert extends AbstractAssert<ContainerAssert, Container> 
 	public ContainerAssert hasPropertyIds(Object... propertyIds) {
 		isNotNull();
 		throwIllegalArgumentExceptionIfTrue(propertyIds == null,
-				"The propertyIds to look for should not be null");
+				"The propertyIds to look for should not be null.");
 		throwIllegalArgumentExceptionIfTrue(propertyIds.length == 0,
-				"The propertyIds to look for should not be empty");
+				"The propertyIds to look for should not be empty.");
 		for (Object propertyId : propertyIds) {
 			hasPropertyId(propertyId);
 		}
